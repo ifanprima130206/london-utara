@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raja Ampat</title>
+    @vite('resources/css/app.css')
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <style>
+        *::selection {
+            background-color: rgb(13 148 136);
+            color: black;
+        }
+        .swiper-pagination {
+            bottom: 10px;
+        }
+        .swiper-pagination .swiper-pagination-bullet {
+            width: 20px;
+            height: 4px;
+            background-color: #fff; 
+            opacity: 0.5;
+            margin: 0 2px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .swiper-pagination .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <nav class="w-full bg-dark flex md:px-32 px-6 lg:pt-6 pt-4 pb-3">
+        <a href="#">
+            <div class="logo h-7 flex items-center">
+                <img src="https://rajaampatkab.go.id/wp/wp-content/uploads/2023/09/cropped-cropped-logo_pemda_2-removebg-preview.png" alt="" class="h-full">
+                <div class="ml-2 mb-2">
+                    <span class="text-xs font-semibold">Raja Ampat</span>
+                    <span class="text-xs block">Website Resmi Kecamatan Raja Ampat</span>
+                </div>
+            </div>
+        </a>
+        
+        <div class="navbar ml-auto hidden md:block">
+            <ul class="flex">
+                <li class="nav-link pr-4 py-4 md:pt-1 text-sm font-semibold hover:text-teal-600 active:text-teal-700">
+                    <a href="#">Beranda</a>
+                </li>
+                <li class="nav-link pr-4 py-4 md:pt-1 text-sm font-semibold hover:text-teal-600 active:text-teal-700">
+                    <a href="#">Tentang</a>
+                </li>
+                <li class="nav-link pr-4 py-4 md:pt-1 text-sm font-semibold hover:text-teal-600 active:text-teal-700">
+                    <a href="#">Galeri</a>
+                </li>
+                <li class="nav-link pr-4 py-4 md:pt-1 text-sm font-semibold hover:text-teal-600 active:text-teal-700">
+                    <a href="#">Berita</a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar ml-auto md:hidden">
+            <a href="javascript:void(0)" id="hamburger-toggle">
+                <i class="bx bx-menu-alt-right"></i>
+            </a>
+        </div>
+    </nav>
+
+    <nav class="h-screen bg-white w-4/5 fixed top-14 right-0 z-50 hidden shadow-lg" id="mobile-navbar">
+        <div class="navbar ml-auto block md:hidden px-6">
+            <ul class="pl-auto ml-auto">
+                <li class="nav-link pr-4 py-4 md:pt-1 text-sm font-semibold hover:text-teal-600 active:text-teal-700 flex">
+                    <a href="#" class="ml-auto">Beranda</a>
+                </li>
+                <li class="nav-link pr-4 py-4 md:pt-1 text-sm font-semibold hover:text-teal-600 active:text-teal-700 flex">
+                    <a href="#" class="ml-auto">Profil</a>
+                </li>
+                <li class="nav-link pr-4 py-4 md:pt-1 text-sm font-semibold hover:text-teal-600 active:text-teal-700 flex">
+                    <a href="#" class="ml-auto">Tentang</a>
+                </li>
+                <li class="nav-link pr-4 py-4 md:pt-1 text-sm font-semibold hover:text-teal-600 active:text-teal-700 flex">
+                    <a href="#" class="ml-auto">Gallery</a>
+                </li>
+                <li class="nav-link pr-4 py-4 md:pt-1 text-sm font-semibold hover:text-teal-600 active:text-teal-700 flex">
+                    <a href="#" class="ml-auto">News</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="w-full">
+        <div class="relative overflow-x-hidden">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Slide 1" class="w-full h-1/2 md:h-96 lg:h-[500px] xl:h-screen xl:-mt-[75px]">
+                    </div>
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1570789210967-2cac24afeb00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Slide 2" class="w-full h-1/2 md:h-96 lg:h-[500px] xl:h-screen xl:-mt-[75px]">
+                    </div>
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1570788777187-380906016960?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Slide 3" class="w-full h-1/2 md:h-96 lg:h-[500px] xl:h-screen xl:-mt-[75px]">
+                    </div>
+                </div>
+                <div class="swiper-pagination absolute inset-x-0 bottom-0 mb-4"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="about-history" class="py-16">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-semibold text-slate-800">Tentang Kami</h2>
+                <p class="mt-4 text-slate-600">Pelajari lebih lanjut tentang perjalanan dan sejarah kami.</p>
+            </div>
+            <div class="w-full">
+                <p class="mt-2 text-center text-[12px] text-slate-600">
+                    Kecamatan Raja Ampat, terletak di Kabupaten Raja Ampat, Provinsi Papua Barat Daya, Indonesia, merupakan wilayah yang kaya akan keanekaragaman hayati laut dan keindahan alam yang murni. Kami berdedikasi untuk melayani masyarakat dengan menyediakan informasi dan layanan yang dibutuhkan untuk kesejahteraan dan perkembangan wilayah kami. Selain itu, kami juga fokus pada upaya pelestarian lingkungan unik ini sambil mempromosikan keindahan Raja Ampat kepada dunia. Sejarah Kecamatan Raja Ampat mencerminkan pengaruh berbagai budaya dan tradisi, dari jalur maritim kuno hingga upaya konservasi modern, menunjukkan ketahanan dan keindahan wilayah ini. Dengan lebih dari 1.500 pulau kecil, atol, dan gundukan pasir, Raja Ampat menjadi tujuan favorit bagi para penyelam dan pecinta alam dari seluruh dunia.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <script>
+        $(document).ready(function() {
+            let isMenuOpen = false;
+
+            $('#hamburger-toggle').click(function() {
+                if (isMenuOpen) {
+                    $('#mobile-navbar').removeClass('animate-slideInRight').addClass('animate-slideOutRight');
+                    setTimeout(function() {
+                        $('#mobile-navbar').addClass('hidden');
+                    }, 500);
+                } else {
+                    $('#mobile-navbar').removeClass('hidden animate-slideOutRight').addClass('animate-slideInRight');
+                }
+                isMenuOpen = !isMenuOpen;
+            });
+
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+            });
+
+        });
+    </script>
+
+</body>
+</html>
