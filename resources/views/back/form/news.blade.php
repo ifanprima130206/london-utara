@@ -27,7 +27,7 @@
                             <div class="form-control-wrap">
                                 <input type="file" class="form-control @error('image') is-invalid @enderror"
                                     name="image" autocomplete="off" value="{{ old('image', $news->image ?? '') }}"
-                                    required>
+                                    >
                                 @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

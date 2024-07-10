@@ -33,20 +33,22 @@ class NewsController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'title' => 'required|string|max:255',
             'image' => 'required|mimes:jpeg,png,jpg,svg,webp',
-            'description' => 'required|string',
+            'description' => 'required',
             'tag' => 'required',
         ]);
 
+        
         $news = new News();
         $news->enhancer = 1;
         $news->title = $request->title;
-        $news->image = $request->file('image')->store('images', 'public');
+        $news->image = $request->file('image')->store('upload/news', 'public');
         $news->description = $request->description;
-        $news->viewers = 0;  
-        $news->tag = $request->tag;
+        $news->viewers = 0;
+        $news->tag = json_encode($request->tag);
         $news->save();
 
         return redirect()->route('news.index')->with('success', 'Berhasil Membuat Berita.');
@@ -81,12 +83,12 @@ class NewsController extends Controller
         $news->title = $request->title;
         $news->enhancer = 1;
         if ($request->hasFile('image')) {
-            $news->image = $request->file('image')->store('images', 'public');
+            $news->image = $request->file('image')->store('upload/news', 'public');
         }
         $news->description = $request->description;
-        $news->tag = $request->tag;
+        $news->tag = json_encode($request->tag);
         $news->save();
-        
+
         // dd($news);
 
         return redirect()->route('news.index')->with('success', 'Berita Berhasil Dirubah.');
