@@ -12,12 +12,12 @@
                     <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x"
                         alt="logo-dark">
                 </a>
-            </div><!-- .nk-header-brand -->
+            </div>
             <div class="nk-header-search ms-3 ms-xl-0">
                 <em class="icon ni ni-search"></em>
                 <input type="text" class="form-control border-transparent form-focus-none"
                     placeholder="Search anything">
-            </div><!-- .nk-header-news -->
+            </div>
             <div class="nk-header-tools">
                 <ul class="nk-quick-nav">
                     <li class="dropdown notification-dropdown">
@@ -89,6 +89,6 @@
                     </li>
                 </ul>
             </div>
-        </div><!-- .nk-header-wrap -->
-    </div><!-- .container-fliud -->
+        </div>
+    </div>
 </div>
