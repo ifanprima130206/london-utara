@@ -7,6 +7,8 @@
 
     @include('back.layout._css')
 
+    @yield('style')
+
 </head>
 
 <body class="nk-body bg-lighter npc-default has-sidebar ">
@@ -38,6 +40,8 @@
     </div>
     
     @include('back.layout._js')
+
+    @yield('script')
 
 </body>
 

@@ -43,7 +43,7 @@
                         </ul>
                     </li>
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/index.html" class="nk-menu-link">
+                        <a href="{{ route('users.index') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-user-alt"></em></span>
                             <span class="nk-menu-text">Pengguna</span>
                         </a>
