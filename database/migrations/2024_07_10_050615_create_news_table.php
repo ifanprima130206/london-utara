@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('image');
             $table->text('description');
+            $table->text('tag');
             $table->integer('viewers');
             $table->timestamps();
             $table->softDeletes();

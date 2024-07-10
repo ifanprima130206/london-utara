@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Back\NewsController;
 use App\Http\Controllers\Back\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,5 +18,8 @@ Route::prefix('admin')->group(function () {
         Route::post('/update/{id}', [UserController::class, 'update'])->name('update');
         Route::get('/destroy/{id}', [UserController::class, 'destroy'])->name('destroy');
     });
-    
+
+    Route::prefix('news')->name('news.')->group(function () {
+        Route::get('/', [NewsController::class, 'news'])->name('index');
+    });
 });
