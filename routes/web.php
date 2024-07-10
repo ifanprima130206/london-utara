@@ -11,6 +11,7 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
     
     Route::prefix('users')->name('users.')->group(function () {
+
         Route::get('/', [UserController::class, 'index'])->name('index');
         Route::get('/create', [UserController::class, 'create'])->name('create');
         Route::post('/store', [UserController::class, 'store'])->name('store');
@@ -18,8 +19,14 @@ Route::prefix('admin')->group(function () {
         Route::post('/update/{id}', [UserController::class, 'update'])->name('update');
         Route::get('/destroy/{id}', [UserController::class, 'destroy'])->name('destroy');
     });
-
+    
     Route::prefix('news')->name('news.')->group(function () {
-        Route::get('/', [NewsController::class, 'news'])->name('index');
+        
+        Route::get('/', [NewsController::class, 'index'])->name('index');
+        Route::get('/create', [NewsController::class, 'create'])->name('create');
+        Route::post('/store', [NewsController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [NewsController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [NewsController::class, 'update'])->name('update');
+        Route::get('/destroy/{id}', [NewsController::class, 'destroy'])->name('destroy');
     });
 });

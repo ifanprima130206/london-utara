@@ -64,7 +64,7 @@
                         </a>
                     </li>
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/index.html" class="nk-menu-link">
+                        <a href="{{ route('news.index') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-template"></em></span>
                             <span class="nk-menu-text">Berita</span>
                         </a>
