@@ -37,10 +37,17 @@ class UserController extends Controller
     {
         $validate = $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email',
             'password' => 'required|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/',
             'role_id' => 'required'
         ]);
+
+        $existingUser = User::where('email', $request->email)->whereNull('deleted_at')->first();
+
+        if ($existingUser) {
+            
+            return redirect()->back()->withInput()->withErrors(['email' => 'Email sudah terdaftar.']);
+        }
 
         $user = User::create($validate);
 
@@ -68,12 +75,20 @@ class UserController extends Controller
         
         $validate = $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$id,
+            'email' => 'required|email',
             'password' => 'nullable|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/',
             'role_id' => 'required'
         ]);
 
+        $existingUser = User::where('email', $request->email)->whereNot('id', $id)->whereNull('deleted_at')->first();
+
+        if ($existingUser) {
+            
+            return redirect()->back()->withInput()->withErrors(['email' => 'Email sudah terdaftar.']);
+        }
+
         $user = User::find($id);
+
         $user->update($validate);
 
         return redirect()->route('users.index')->with('success', 'User berhasil diupdate!');
@@ -84,6 +99,6 @@ class UserController extends Controller
         $id = Crypt::decrypt($id);
         $user = User::find($id);
         $user->delete();
-        return redirect()->route('users.index')->with('success', 'User berhasil dihapus!');
+        return redirect()->route('users.index');
     }
 }

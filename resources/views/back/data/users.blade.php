@@ -37,7 +37,7 @@
                                     <div class="dropdown-menu">
                                         <ul class="link-list-opt">
                                             <li><a href="{{ route('users.edit', Crypt::encrypt($value->id)) }}"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                            <li><a onclick="deleteUser('{{ Crypt::encrypt($value->id) }}')"><em class="icon ni ni-trash"></em><span>Hapus</span></a></li>
+                                            <li><a onclick="deleteUser('{{ route('users.destroy', Crypt::encrypt($value->id)) }}')"><em class="icon ni ni-trash"></em><span>Hapus</span></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
 
 @section('script')
     <script>
-        function deleteUser(userId) {
+        function deleteUser(url) {
             
             Swal.fire({
                 title: 'Apakah Anda yakin?',
@@ -64,8 +64,15 @@
                 confirmButtonText: 'Ya, hapus saja!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    
-                    window.location.href = "{{ route('users.destroy', '') }}/" + userId;
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: '{{ session('success') }}',
+                        showConfirmButton: true,
+                        timer: false,
+                    }).then(() => {
+                        window.location.href = url;
+                    });
                 }
             });
         }
