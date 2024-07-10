@@ -36,8 +36,12 @@
                                         data-bs-toggle="dropdown"><em class="icon ni ni-more-v"></em></a>
                                     <div class="dropdown-menu">
                                         <ul class="link-list-opt">
-                                            <li><a href="{{ route('users.edit', Crypt::encrypt($value->id)) }}"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                            <li><a onclick="deleteUser('{{ route('users.destroy', Crypt::encrypt($value->id)) }}')"><em class="icon ni ni-trash"></em><span>Hapus</span></a></li>
+                                            <li>
+                                                <a href="{{ route('users.edit', Crypt::encrypt($value->id)) }}"><em class="icon ni ni-edit"></em><span>Edit</span></a>
+                                            </li>
+                                            <li>
+                                                <a onclick="deleteUser('{{ route('users.destroy', Crypt::encrypt($value->id)) }}')"><em class="icon ni ni-trash"></em><span>Hapus</span></a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
