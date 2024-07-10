@@ -51,8 +51,8 @@
                                     <em class="icon ni ni-user-alt"></em>
                                 </div>
                                 <div class="user-info d-none d-xl-block">
-                                    <div class="user-status user-status-unverified">Unverified</div>
-                                    <div class="user-name dropdown-indicator">Abu Bin Ishityak</div>
+                                    <div class="user-status user-status-verified">{{ Auth::user()->role_id === 1 ? "Admin" : "Masyarakat" }}</div>
+                                    <div class="user-name dropdown-indicator">{{ Auth::user()->name }}</div>
                                 </div>
                             </div>
                         </a>
@@ -81,7 +81,7 @@
                             </div>
                             <div class="dropdown-inner">
                                 <ul class="link-list">
-                                    <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign
+                                    <li><a href="{{ route('auth.logout') }}"><em class="icon ni ni-signout"></em><span>Sign
                                                 out</span></a></li>
                                 </ul>
                             </div>
