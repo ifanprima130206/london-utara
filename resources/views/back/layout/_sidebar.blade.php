@@ -20,7 +20,7 @@
                         <h6 class="overline-title text-primary-alt">Dasbor</h6>
                     </li>
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/index.html" class="nk-menu-link">
+                        <a href="{{ url('/') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
                             <span class="nk-menu-text">Ikhtisar</span>
                         </a>

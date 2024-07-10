@@ -45,17 +45,23 @@ class UserController extends Controller
         $existingUser = User::where('email', $request->email)->whereNull('deleted_at')->first();
 
         if ($existingUser) {
-            
+
             return redirect()->back()->withInput()->withErrors(['email' => 'Email sudah terdaftar.']);
         }
 
-        $user = User::create($validate);
+        $user = new User();
+        $user->name = $validate['name'];
+        $user->email = $validate['email'];
+        $user->password = bcrypt($request->password);
+        $user->role_id = $validate['role_id'];
+        $user->save();
 
         return redirect()->route('users.index')->with('success', 'User berhasil ditambahkan!');
     }
 
-    public function edit($id) {
-        
+    public function edit($id)
+    {
+
         $id = Crypt::decrypt($id);
 
         $user = User::find($id);
@@ -72,7 +78,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $id = Crypt::decrypt($id);
-        
+
         $validate = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -83,13 +89,20 @@ class UserController extends Controller
         $existingUser = User::where('email', $request->email)->whereNot('id', $id)->whereNull('deleted_at')->first();
 
         if ($existingUser) {
-            
+
             return redirect()->back()->withInput()->withErrors(['email' => 'Email sudah terdaftar.']);
         }
 
         $user = User::find($id);
 
-        $user->update($validate);
+        $user = User::find($id);
+        $user->name = $validate['name'];
+        $user->email = $validate['email'];
+        if ($request->password) {
+            $user->password = bcrypt($request->password);
+        }
+        $user->role_id = $validate['role_id'];
+        $user->save();
 
         return redirect()->route('users.index')->with('success', 'User berhasil diupdate!');
     }
