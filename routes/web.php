@@ -12,12 +12,12 @@ Route::get('/', function () {
 
 Route::prefix('auth')->name('auth.')->group(function () {
 
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/store_login', [AuthController::class, 'store_login'])->name('store_login');
+    Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('isLoggedin');
+    Route::post('/store_login', [AuthController::class, 'store_login'])->name('store_login')->middleware('isLoggedin');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('isNone')->group(function () {
 
     Route::get('/', [DashboardController::class, 'index']);
     

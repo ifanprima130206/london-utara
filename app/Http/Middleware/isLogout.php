@@ -18,7 +18,7 @@ class isLogout
     {
         if (isset(Auth::user()->id)) {
             
-            return redirect('/dashboard');
+            return redirect('/admin');
         }
         return $next($request);
     }
