@@ -51,4 +51,15 @@ Route::prefix('admin')->middleware('isNone')->group(function () {
         Route::post('/update/{id}', [GalleryController::class, 'update'])->name('update');
         Route::get('/destroy/{id}', [GalleryController::class, 'destroy'])->name('destroy');
     });
+
+    Route::prefix('schedules')->name('schedules.')->group(function () {
+        
+        Route::get('/', [GalleryController::class, 'index'])->name('index');
+        Route::get('/create', [GalleryController::class, 'create'])->name('create');
+        Route::post('/store', [GalleryController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [GalleryController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [GalleryController::class, 'update'])->name('update');
+        Route::get('/destroy/{id}', [GalleryController::class, 'destroy'])->name('destroy');
+    });
+
 });
