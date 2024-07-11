@@ -21,7 +21,7 @@
                     @foreach ($newses as $key => $value)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $value->enhancer }}</td>
+                            <td>{{ $value->user->name }}</td>
                             <td>{{ $value->title }}</td>
                             <td>{{ $value->viewers }}</td>
                             <td>

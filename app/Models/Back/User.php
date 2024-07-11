@@ -22,6 +22,10 @@ class User extends Authenticatable
         return $this->hasMany(Gallery::class, 'enhancer');
     }
 
+    public function news(){
+        return $this->hasMany(News::class, 'enhancer');
+    }
+
     public function schedule(){
         return $this->hasMany(Schedules::class, 'enhancer');
     }
