@@ -20,7 +20,7 @@
                         <h6 class="overline-title text-primary-alt">Dasbor</h6>
                     </li>
                     <li class="nk-menu-item">
-                        <a href="{{ url('/') }}" class="nk-menu-link">
+                        <a href="{{ url('admin/overview') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
                             <span class="nk-menu-text">Ikhtisar</span>
                         </a>
@@ -58,25 +58,19 @@
                         <h6 class="overline-title text-primary-alt">Halaman Website</h6>
                     </li>
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/index.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-book-read"></em></span>
-                            <span class="nk-menu-text">Profil</span>
-                        </a>
-                    </li>
-                    <li class="nk-menu-item">
                         <a href="{{ route('news.index') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-template"></em></span>
                             <span class="nk-menu-text">Berita</span>
                         </a>
                     </li>
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/index.html" class="nk-menu-link">
+                        <a href="{{ route('galleries.index') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-img"></em></span>
                             <span class="nk-menu-text">Galeri</span>
                         </a>
                     </li>
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/index.html" class="nk-menu-link">
+                        <a href="{{  }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-calendar-alt"></em></span>
                             <span class="nk-menu-text">Agenda</span>
                         </a>

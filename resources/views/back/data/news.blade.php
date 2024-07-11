@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="d-flex justify-content-end mb-4">
-        <a href="{{ route('news.create') }}" class="btn btn-primary">Tambah Pengguna</a>
+        <a href="{{ route('news.create') }}" class="btn btn-primary">Tambah Berita</a>
     </div>
 
     <div class="card card-bordered card-preview">

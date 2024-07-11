@@ -10,9 +10,13 @@ class Gallery extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'gallery';
+    protected $table = 'galleries';
 
     protected $guarded = ['id'];
 
     protected $dates = ['deleted_at'];
+
+    public function user() {
+        return $this->belongsTo(User::class, 'enhancer');
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Models\Back\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
 class NewsController extends Controller
@@ -43,7 +44,7 @@ class NewsController extends Controller
 
         
         $news = new News();
-        $news->enhancer = 1;
+        $news->enhancer = Auth::user()->id;
         $news->title = $request->title;
         $news->image = $request->file('image')->store('upload/news', 'public');
         $news->description = $request->description;
@@ -81,7 +82,7 @@ class NewsController extends Controller
         ]);
 
         $news->title = $request->title;
-        $news->enhancer = 1;
+        $news->enhancer = Auth::user()->id;
         if ($request->hasFile('image')) {
             $news->image = $request->file('image')->store('upload/news', 'public');
         }

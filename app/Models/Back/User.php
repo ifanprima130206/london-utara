@@ -18,4 +18,7 @@ class User extends Authenticatable
 
     protected $dates = ['deleted_at'];
     
+    public function gallery(){
+        return $this->hasMany(Gallery::class, 'enhancer');
+    }
 }
