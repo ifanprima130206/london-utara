@@ -76,9 +76,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-md-6">
-                                            {!! htmlFormSnippet() !!}
-                                        </div>
+                                        {!! htmlFormSnippet() !!}
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-lg btn-primary btn-block">Masuk</button>

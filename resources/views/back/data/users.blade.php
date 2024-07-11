@@ -53,32 +53,3 @@
         </div>
     </div>
 @endsection
-
-@section('script')
-    <script>
-        function deleteUser(url) {
-            
-            Swal.fire({
-                title: 'Apakah Anda yakin?',
-                text: "Anda tidak akan dapat mengembalikan ini!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus saja!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success!',
-                        text: '{{ session('success') }}',
-                        showConfirmButton: true,
-                        timer: false,
-                    }).then(() => {
-                        window.location.href = url;
-                    });
-                }
-            });
-        }
-    </script>
-@endsection
