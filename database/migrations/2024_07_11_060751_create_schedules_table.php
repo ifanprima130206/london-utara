@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('enhancer');
             $table->string('title');
+            $table->text('address');
             $table->date('date');
             $table->time('start_time');
             $table->time('end_time');

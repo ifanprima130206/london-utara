@@ -21,4 +21,8 @@ class User extends Authenticatable
     public function gallery(){
         return $this->hasMany(Gallery::class, 'enhancer');
     }
+
+    public function schedule(){
+        return $this->hasMany(Schedules::class, 'enhancer');
+    }
 }

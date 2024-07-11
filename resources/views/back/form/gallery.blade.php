@@ -10,7 +10,7 @@
                 <div class="row g-gs p-4">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="title" class="form-label">Title</label>
+                            <label for="title" class="form-label">Judul</label>
                             <div class="form-control-wrap">
                                 <input type="text" class="form-control @error('title') is-invalid @enderror"
                                     name="title" autocomplete="off" value="{{ old('title', $gallery->title ?? '') }}"
@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="image" class="form-label">Image</label>
+                            <label for="image" class="form-label">Foto</label>
                             <div class="form-control-wrap">
                                 <input type="file" class="form-control @error('image') is-invalid @enderror"
                                     name="image" autocomplete="off" value="{{ old('image', $gallery->image ?? '') }}"
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="description" class="form-label">Description</label>
+                            <label for="description" class="form-label">Deskripsi</label>
                             <div class="form-control-wrap">
                                 <textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror" required>{{ old('description', $gallery->description ?? '') }}</textarea>
                                 @error('description')
