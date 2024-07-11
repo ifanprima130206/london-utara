@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Back\DashboardController;
 use App\Http\Controllers\Back\GalleryController;
 use App\Http\Controllers\Back\NewsController;
+use App\Http\Controllers\Back\ScheduleController;
 use App\Http\Controllers\Back\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,12 +55,12 @@ Route::prefix('admin')->middleware('isNone')->group(function () {
 
     Route::prefix('schedules')->name('schedules.')->group(function () {
         
-        Route::get('/', [GalleryController::class, 'index'])->name('index');
-        Route::get('/create', [GalleryController::class, 'create'])->name('create');
-        Route::post('/store', [GalleryController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [GalleryController::class, 'edit'])->name('edit');
-        Route::post('/update/{id}', [GalleryController::class, 'update'])->name('update');
-        Route::get('/destroy/{id}', [GalleryController::class, 'destroy'])->name('destroy');
+        Route::get('/', [ScheduleController::class, 'index'])->name('index');
+        Route::get('/create', [ScheduleController::class, 'create'])->name('create');
+        Route::post('/store', [ScheduleController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [ScheduleController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [ScheduleController::class, 'update'])->name('update');
+        Route::get('/destroy/{id}', [ScheduleController::class, 'destroy'])->name('destroy');
     });
 
 });
