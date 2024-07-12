@@ -41,6 +41,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         $user = User::where('email', $credentials['email'])->first();
+        
         if (!$user || $user->status != "1") {
             return back()->withErrors([
                 'email' => 'Akun belum aktif, silahkan cek email dan aktivasi sekarang.',

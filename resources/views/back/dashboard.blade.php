@@ -35,10 +35,10 @@
                                     Jumlah
                                 </div>
                                 <div class="number-lg fs-1">
-                                    0
+                                    {{ $schedules_now_count }}
                                 </div>
                                 <div class="fs-6">
-                                    Agenda
+                                    Lihat
                                 </div>
                             </div>
                         </div>
@@ -46,30 +46,6 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="col-md-3">
-            <div class="card">
-                <div class="card-inner">
-                    <div class="nk-wg7">
-                        <div class="nk-wg7-stats">
-                            <div class="text-start">
-                                <span>Statistik Pengunjung</span>
-                            </div>
-                            <div class="text-end">
-                                <div class="nk-wg7-title fs-4">
-                                    Jumlah
-                                </div>
-                                <div class="number-lg fs-1">
-                                    0
-                                </div>
-                                <div class="fs-6">
-                                    Pengunjung
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
     <div class="row g-gs">
         <div class="col-xxl-3 col-md-6">

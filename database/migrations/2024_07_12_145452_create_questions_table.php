@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->integer('enhancers');
+            $table->integer('enhancer');
             $table->text('question');
             $table->text('choices');
             $table->timestamps();

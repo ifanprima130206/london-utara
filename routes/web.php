@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Back\DashboardController;
 use App\Http\Controllers\Back\GalleryController;
 use App\Http\Controllers\Back\NewsController;
+use App\Http\Controllers\Back\QusetionController;
 use App\Http\Controllers\Back\ScheduleController;
 use App\Http\Controllers\Back\UserController;
 use Illuminate\Support\Facades\Route;
@@ -64,6 +65,16 @@ Route::prefix('admin')->middleware('isNone')->group(function () {
         Route::get('/edit/{id}', [ScheduleController::class, 'edit'])->name('edit');
         Route::post('/update/{id}', [ScheduleController::class, 'update'])->name('update');
         Route::get('/destroy/{id}', [ScheduleController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::prefix('questions')->name('questions.')->group(function () {
+        
+        Route::get('/', [QusetionController::class, 'index'])->name('index');
+        Route::get('/create', [QusetionController::class, 'create'])->name('create');
+        Route::post('/store', [QusetionController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [QusetionController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [QusetionController::class, 'update'])->name('update');
+        Route::get('/destroy/{id}', [QusetionController::class, 'destroy'])->name('destroy');
     });
 
 });

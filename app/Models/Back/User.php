@@ -29,4 +29,8 @@ class User extends Authenticatable
     public function schedule(){
         return $this->hasMany(Schedules::class, 'enhancer');
     }
+
+    public function question(){
+        return $this->hasMany(Schedules::class, 'enhancer');
+    }
 }
