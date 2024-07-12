@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-inner">
                     <div class="nk-wg7">
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        {{-- <div class="col-md-3">
             <div class="card">
                 <div class="card-inner">
                     <div class="nk-wg7">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     <div class="row g-gs">
         <div class="col-xxl-3 col-md-6">
