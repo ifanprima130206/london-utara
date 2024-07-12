@@ -52,7 +52,7 @@
                     <div class="nk-wg7">
                         <div class="nk-wg7-stats">
                             <div class="text-start">
-                                <span>Data Pengunjung</span>
+                                <span>Statistik Pengunjung</span>
                             </div>
                             <div class="text-end">
                                 <div class="nk-wg7-title fs-4">

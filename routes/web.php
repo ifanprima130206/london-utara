@@ -16,7 +16,10 @@ Route::prefix('auth')->name('auth.')->group(function () {
 
     Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('isLoggedin');
     Route::post('/store_login', [AuthController::class, 'store_login'])->name('store_login')->middleware('isLoggedin');
+    Route::get('/register', [AuthController::class, 'register'])->name('register')->middleware('isLoggedin');
+    Route::post('/store_register', [AuthController::class, 'store_register'])->name('store_register')->middleware('isLoggedin');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('activation/{token}', [AuthController::class, 'activation'])->name('activation');
 });
 
 Route::prefix('admin')->middleware('isNone')->group(function () {

@@ -27,7 +27,7 @@
                         <div class="nk-split-content nk-block-area nk-block-area-column nk-auth-container bg-white">
                             <div class="nk-block nk-block-middle nk-auth-body">
                                 <div class="brand-logo pb-5">
-                                    <a href="html/index.html" class="logo-link">
+                                    <a href="{{ url('/') }}" class="logo-link">
                                         <h4>London Utara</h4>
                                     </a>
                                 </div>
@@ -83,7 +83,7 @@
                                     </div>
                                 </form>
                                 <div class="form-note-s2 pt-4"> Belum punya akun? <a
-                                        href="html/pages/auths/auth-register-v3.html">Daftar Sekarang</a>
+                                        href="{{ route('auth.register') }}">Daftar Sekarang</a>
                                 </div>
                             </div>
                         </div>
@@ -96,5 +96,29 @@
 
     <script src="{{ url('assets/back') }}/js/bundle.js?ver=3.0.3"></script>
     <script src="{{ url('assets/back') }}/js/scripts.js?ver=3.0.3"></script>
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Sukses!',
+                text: '{{ session('success') }}',
+                showConfirmButton: true,
+                timer: false,
+            });
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: '{{ session('error') }}',
+                showConfirmButton: true,
+                timer: false,
+            });
+        </script>
+    @endif
 
 </html>

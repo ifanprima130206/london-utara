@@ -54,6 +54,7 @@ class UserController extends Controller
         $user->email = $validate['email'];
         $user->password = bcrypt($request->password);
         $user->role_id = $validate['role_id'];
+        $user->status = '1';
         $user->save();
 
         return redirect()->route('users.index')->with('success', 'User berhasil ditambahkan!');
