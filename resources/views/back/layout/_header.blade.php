@@ -72,8 +72,10 @@
                                 <ul class="link-list">
                                     <li><a href="html/user-profile-regular.html"><em
                                                 class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
+                                    @if (Auth::user()->role_id === 1)
                                     <li><a href="html/user-profile-setting.html"><em
                                                 class="icon ni ni-setting-alt"></em><span>Website Setting</span></a>
+                                    @endif
                                     </li>
                                     <li><a class="dark-switch" href="#"><em
                                                 class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>

@@ -35,46 +35,50 @@
                         </a>
                         <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
-                                <a href="html/components/charts/chartjs.html" class="nk-menu-link"><span class="nk-menu-text">Belum Terverifikasi</span></a>
+                                <a href="html/components/charts/chartjs.html" class="nk-menu-link"><span
+                                        class="nk-menu-text">Belum Terverifikasi</span></a>
                             </li>
                             <li class="nk-menu-item">
-                                <a href="html/components/charts/knob.html" class="nk-menu-link"><span class="nk-menu-text">Terverifikasi</span></a>
+                                <a href="html/components/charts/knob.html" class="nk-menu-link"><span
+                                        class="nk-menu-text">Terverifikasi</span></a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nk-menu-item">
-                        <a href="{{ route('users.index') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-user-alt"></em></span>
-                            <span class="nk-menu-text">Pengguna</span>
-                        </a>
-                    </li>
-                    <li class="nk-menu-item">
-                        <a href="{{ route('questions.index') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-question"></em></span>
-                            <span class="nk-menu-text">Pertanyaan</span>
-                        </a>
-                    </li>
-                    <li class="nk-menu-heading">
-                        <h6 class="overline-title text-primary-alt">Halaman Website</h6>
-                    </li>
-                    <li class="nk-menu-item">
-                        <a href="{{ route('news.index') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-template"></em></span>
-                            <span class="nk-menu-text">Berita</span>
-                        </a>
-                    </li>
-                    <li class="nk-menu-item">
-                        <a href="{{ route('galleries.index') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-img"></em></span>
-                            <span class="nk-menu-text">Galeri</span>
-                        </a>
-                    </li>
-                    <li class="nk-menu-item">
-                        <a href="{{ route('schedules.index') }}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-calendar-alt"></em></span>
-                            <span class="nk-menu-text">Agenda</span>
-                        </a>
-                    </li>
+                    @if (Auth::user()->role_id === 1)
+                        <li class="nk-menu-item">
+                            <a href="{{ route('users.index') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-user-alt"></em></span>
+                                <span class="nk-menu-text">Pengguna</span>
+                            </a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="{{ route('questions.index') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-question"></em></span>
+                                <span class="nk-menu-text">Pertanyaan</span>
+                            </a>
+                        </li>
+                        <li class="nk-menu-heading">
+                            <h6 class="overline-title text-primary-alt">Halaman Website</h6>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="{{ route('news.index') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-template"></em></span>
+                                <span class="nk-menu-text">Berita</span>
+                            </a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="{{ route('galleries.index') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-img"></em></span>
+                                <span class="nk-menu-text">Galeri</span>
+                            </a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="{{ route('schedules.index') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon"><em class="icon ni ni-calendar-alt"></em></span>
+                                <span class="nk-menu-text">Agenda</span>
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
