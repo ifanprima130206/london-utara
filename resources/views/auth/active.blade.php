@@ -25,10 +25,10 @@
                 <div class="nk-content ">
                     <div class="nk-block nk-block-middle wide-xs mx-auto">
                         <div class="nk-block-content nk-error-ld text-center">
-                            <h1 class="nk-error-head">Aktif</h1>
+                            <h1 class="nk-error-head">Akun Aktif</h1>
                             <h3 class="nk-error-title">Tunggu apa lagi?</h3>
                             <p class="nk-error-text">Gaskeun Login.</p>
-                            <a href="{{ route('auth.login') }}" class="btn btn-lg btn-primary mt-2">Back To Home</a>
+                            <a href="{{ route('auth.login') }}" class="btn btn-lg btn-primary mt-2">Login Sekarang</a>
                         </div>
                     </div><!-- .nk-block -->
                 </div>

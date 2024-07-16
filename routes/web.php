@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Back\DashboardController;
 use App\Http\Controllers\Back\GalleryController;
 use App\Http\Controllers\Back\NewsController;
+use App\Http\Controllers\Back\PopulationController;
 use App\Http\Controllers\Back\QusetionController;
 use App\Http\Controllers\Back\ScheduleController;
 use App\Http\Controllers\Back\UserController;
@@ -75,6 +76,20 @@ Route::prefix('admin')->middleware('isNone')->group(function () {
         Route::get('/edit/{id}', [QusetionController::class, 'edit'])->name('edit');
         Route::post('/update/{id}', [QusetionController::class, 'update'])->name('update');
         Route::get('/destroy/{id}', [QusetionController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::prefix('populations')->name('populations.')->group(function () {
+        
+        Route::prefix('unverified')->name('unverified.')->group(function () {
+            
+            Route::get('/', [PopulationController::class, 'unverified'])->name('index');
+            Route::get('/create', [PopulationController::class, 'create'])->name('create');
+            Route::post('/store', [PopulationController::class, 'store'])->name('store');
+            Route::get('/edit/{id}', [PopulationController::class, 'edit'])->name('edit');
+            Route::post('/verify/{id}', [PopulationController::class, 'verify'])->name('verify');
+            Route::post('/update/{id}', [PopulationController::class, 'update'])->name('update');
+            Route::get('/destroy/{id}', [PopulationController::class, 'destroy'])->name('destroy');
+        });
     });
 
 });

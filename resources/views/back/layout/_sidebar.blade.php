@@ -35,7 +35,7 @@
                         </a>
                         <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
-                                <a href="html/components/charts/chartjs.html" class="nk-menu-link"><span
+                                <a href="{{ route('populations.unverified.index') }}" class="nk-menu-link"><span
                                         class="nk-menu-text">Belum Terverifikasi</span></a>
                             </li>
                             <li class="nk-menu-item">

@@ -13,7 +13,24 @@ return new class extends Migration
     {
         Schema::create('populations', function (Blueprint $table) {
             $table->id();
+            $table->integer('enhancer');
+            $table->string('name');
+            $table->string('nik_kk');
+            $table->string('family_card');
+            $table->string('nik')->nullable();
+            $table->string('gender');
+            $table->string('birth_place');
+            $table->date('birth_date');
+            $table->string('religion');
+            $table->string('marital_status');
+            $table->string('job');
+            $table->string('address');
+            $table->string('phone');
+            $table->integer('residence_status');
+            $table->text('notes')->nullable();
+            $table->string('qr_code')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
