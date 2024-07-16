@@ -22,7 +22,7 @@ class PopulationController extends Controller
         // dd($unverified);
 
         $data = [
-            'title' => 'Populasi',
+            'title' => 'Kependudukan',
             'unverified' => $unverified,
         ];
 
@@ -33,7 +33,7 @@ class PopulationController extends Controller
     {
 
         $data = [
-            'title' => 'Populasi',
+            'title' => 'Kependudukan',
             'page' => 'create'
         ];
 
@@ -83,7 +83,7 @@ class PopulationController extends Controller
         $population = Population::findOrFail(decrypt($id));
         
         $data = [
-            'title' => 'Populasi',
+            'title' => 'Kependudukan',
             'page' => 'edit',
             'population' => $population
         ];      
