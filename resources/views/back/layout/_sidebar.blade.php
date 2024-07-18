@@ -2,7 +2,7 @@
     <div class="nk-sidebar-element nk-sidebar-head">
         <div class="nk-sidebar-brand">
             <a href="html/index.html" class="logo-link nk-sidebar-logo">
-                <h4>London Utara</h4>
+                <img src="{{ url('assets/icon.jpg') }}" style="height: 50px;width:150px;margin-left: -15px">
             </a>
         </div>
         <div class="nk-menu-trigger me-n2">

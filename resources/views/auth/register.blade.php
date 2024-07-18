@@ -28,7 +28,7 @@
                             <div class="nk-block nk-block-middle nk-auth-body">
                                 <div class="brand-logo pb-5">
                                     <a href="{{ url('/') }}" class="logo-link">
-                                        <h4>London Utara</h4>
+                                        <img src="{{ url('assets/icon.jpg') }}" style="height: 50px;width:150px;margin-left: -15px">
                                     </a>
                                 </div>
                                 <div class="nk-block-head">
