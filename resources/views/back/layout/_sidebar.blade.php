@@ -39,7 +39,7 @@
                                         class="nk-menu-text">Belum Terverifikasi</span></a>
                             </li>
                             <li class="nk-menu-item">
-                                <a href="html/components/charts/knob.html" class="nk-menu-link"><span
+                                <a href="{{ route('populations.verified.index') }}" class="nk-menu-link"><span
                                         class="nk-menu-text">Terverifikasi</span></a>
                             </li>
                         </ul>

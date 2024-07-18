@@ -28,6 +28,6 @@ module.exports = {
   },
   plugins: [
     require('flowbite/plugin'),
-    require("tailgrids/plugin")
+    require("tailgrids/plugin"),
   ],
 };

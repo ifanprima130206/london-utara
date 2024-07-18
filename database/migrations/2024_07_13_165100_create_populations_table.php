@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('phone');
             $table->integer('residence_status');
             $table->text('notes')->nullable();
-            $table->string('qr_code')->nullable();
+            $table->text('qr_code')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

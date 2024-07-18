@@ -6,16 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Back\Population;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class PopulationController extends Controller
 {
     public function unverified()
     {
         if (Auth::user()->role_id === 1) {
-            
+
             $unverified = Population::whereNot('residence_status', 3)->get();
         } else {
-            
+
             $unverified = Population::whereNot('residence_status', 3)->where('enhancer', Auth::user()->id)->get();
         }
 
@@ -23,6 +24,28 @@ class PopulationController extends Controller
 
         $data = [
             'title' => 'Kependudukan',
+            'page' => 'unverified',
+            'unverified' => $unverified,
+        ];
+
+        return view('back.data.unverified-populations', $data);
+    }
+
+    public function verified()
+    {
+        if (Auth::user()->role_id === 1) {
+
+            $unverified = Population::where('residence_status', 3)->get();
+        } else {
+
+            $unverified = Population::where('residence_status', 3)->where('enhancer', Auth::user()->id)->get();
+        }
+
+        // dd($unverified);
+
+        $data = [
+            'title' => 'Kependudukan',
+            'page' => 'verified',
             'unverified' => $unverified,
         ];
 
@@ -53,7 +76,7 @@ class PopulationController extends Controller
             'job' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
             'address' => 'required|string',
-            'family_card' => 'required|image|mimes:jpeg,png,jpg,gif,webp', 
+            'family_card' => 'required|image|mimes:jpeg,png,jpg,gif,webp',
         ]);
 
         $familyCardPath = $request->file('family_card')->store('upload/kartu_keluarga', 'public');
@@ -81,38 +104,51 @@ class PopulationController extends Controller
     public function edit($id)
     {
         $population = Population::findOrFail(decrypt($id));
-        
+
         $data = [
             'title' => 'Kependudukan',
             'page' => 'edit',
             'population' => $population
-        ];      
+        ];
 
         return view('back.form.unverified-populations', $data);
     }
 
-    public function verify(Request $request, $id){
-
+    public function verify(Request $request, $id)
+    {
         $id = decrypt($id);
-        
+
         $request->validate([
             'residence_status' => 'required|in:1,2,3',
-            'notes' => 'required',
+            'notes' => 'required|string',
         ]);
+
+        $populations_count = Population::whereNot('id', $id)->count();
+
+        // dd($populations_count);
 
         $population = Population::findOrFail($id);
 
         $population->residence_status = $request->residence_status;
         $population->notes = $request->notes;
+
+        if ($request->residence_status == 3) {
+            $population->qr_code = QrCode::size(200)->generate(url('') . '/populations/verified_document/' . encrypt($population->id));
+        }
+        $population->nik = $populations_count + 1;
+
         $population->save();
 
-        return redirect()->route('populations.unverified.index')->with('success', 'Verifikasi Berhasil .');
+        return redirect()->route('populations.unverified.index')->with('success', 'Verifikasi Berhasil.');
     }
+
 
     public function update(Request $request, $id)
     {
+        // dd($request->all());
+
         $id = decrypt($id);
-        
+
         $request->validate([
             'name' => 'required|string|max:255',
             'nik_kk' => 'required|string|max:20',
@@ -124,12 +160,12 @@ class PopulationController extends Controller
             'job' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
             'address' => 'required|string',
-            'family_card' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp', 
+            'family_card' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp',
         ]);
-        
+
         $population = Population::findOrFail($id);
 
-        
+
         $population->enhancer = Auth::user()->id;
         $population->name = $request->name;
         $population->nik_kk = $request->nik_kk;
@@ -153,7 +189,8 @@ class PopulationController extends Controller
         return redirect()->route('populations.unverified.index')->with('success', 'Berhasil Mengajukan Kependudukan.');
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
 
         $id = decrypt($id);
         $population = Population::findOrFail($id);

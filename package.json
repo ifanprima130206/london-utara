@@ -15,6 +15,7 @@
     },
     "dependencies": {
         "flowbite": "^2.4.1",
+        "pagedone": "^1.1.2",
         "tailgrids": "^2.2.6"
     }
 }

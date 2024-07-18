@@ -8,11 +8,11 @@ use App\Http\Controllers\Back\PopulationController;
 use App\Http\Controllers\Back\QusetionController;
 use App\Http\Controllers\Back\ScheduleController;
 use App\Http\Controllers\Back\UserController;
+use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [HomepageController::class, 'index']);
 
 Route::prefix('auth')->name('auth.')->group(function () {
 
@@ -89,6 +89,11 @@ Route::prefix('admin')->middleware('isNone')->group(function () {
             Route::post('/verify/{id}', [PopulationController::class, 'verify'])->name('verify');
             Route::post('/update/{id}', [PopulationController::class, 'update'])->name('update');
             Route::get('/destroy/{id}', [PopulationController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('verified')->name('verified.')->group(function () {
+            
+            Route::get('/', [PopulationController::class, 'verified'])->name('index');
         });
     });
 
