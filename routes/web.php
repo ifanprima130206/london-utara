@@ -91,6 +91,8 @@ Route::prefix('admin')->middleware('isNone')->group(function () {
             Route::get('/destroy/{id}', [PopulationController::class, 'destroy'])->name('destroy');
         });
 
+        Route::get('verified_document/{id}', [PopulationController::class, 'verified_document'])->name('verified_document');
+
         Route::prefix('verified')->name('verified.')->group(function () {
             
             Route::get('/', [PopulationController::class, 'verified'])->name('index');

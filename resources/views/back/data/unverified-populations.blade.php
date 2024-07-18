@@ -85,7 +85,7 @@
                                         <div class="dropdown-menu">
                                             <ul class="link-list-opt">
                                                 <li>
-                                                    <a href="{{ route('populations.unverified.show', Crypt::encrypt($value->id)) }}"><em class="icon ni ni-file-docs"></em><span>Karu Tanda Penduduk</span></a>
+                                                    <a href="{{ route('populations.verified_document', Crypt::encrypt($value->id)) }}"><em class="icon ni ni-file-docs"></em><span>Karu Tanda Penduduk</span></a>
                                                 </li>
                                             </ul>
                                         </div>

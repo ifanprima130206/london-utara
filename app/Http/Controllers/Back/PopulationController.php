@@ -10,6 +10,19 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class PopulationController extends Controller
 {
+    public function verified_document($id){
+
+        $id = decrypt($id);
+
+        $population = Population::findOrFail($id);
+
+        $data = [
+            'population' => $population,
+        ];
+
+        return view('back.print.verified-document', $data);
+    }
+
     public function unverified()
     {
         if (Auth::user()->role_id === 1) {
