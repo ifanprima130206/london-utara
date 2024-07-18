@@ -118,10 +118,21 @@ class PopulationController extends Controller
     {
         $population = Population::findOrFail(decrypt($id));
 
+        // dd($population->residence_status);
+
+        if ($population->residence_status === 1) {
+
+            $rejection = 'disabled';
+        } else {
+
+            $rejection = '';
+        }
+
         $data = [
             'title' => 'Kependudukan',
             'page' => 'edit',
-            'population' => $population
+            'population' => $population,
+            'rejection' => $rejection
         ];
 
         return view('back.form.unverified-populations', $data);

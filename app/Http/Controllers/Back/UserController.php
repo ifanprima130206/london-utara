@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Models\Back\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
@@ -105,7 +106,13 @@ class UserController extends Controller
         $user->role_id = $validate['role_id'];
         $user->save();
 
-        return redirect()->route('users.index')->with('success', 'User berhasil diupdate!');
+        if (Auth::user()->role_id == 1) {
+            
+            return redirect()->route('users.index')->with('success', 'User berhasil diupdate!');
+        } else {
+
+            return redirect()->route('admin.overview')->with('success', 'User berhasil diupdate!');
+        }
     }
 
     public function destroy($id)

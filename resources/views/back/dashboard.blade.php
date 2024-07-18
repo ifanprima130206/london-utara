@@ -85,7 +85,7 @@
             </div><!-- .card -->
         </div><!-- .col -->
         @if (Auth::user()->role_id == 1)
-            <div class="col-xxl-3 col-md-6">
+            <div class="col-md-6">
                 <div class="card h-100">
                     <div class="card-inner">
                         <div class="card-title-group mb-2">

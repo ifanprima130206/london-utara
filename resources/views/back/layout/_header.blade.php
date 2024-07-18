@@ -70,13 +70,13 @@
                             </div>
                             <div class="dropdown-inner">
                                 <ul class="link-list">
-                                    <li><a href="html/user-profile-regular.html"><em
-                                                class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
+                                    <li><a href="{{ route('users.edit', Crypt::encrypt(Auth::user()->id)) }}"><em
+                                        class="icon ni ni-user-alt"></em><span>Edit Profile</span></a></li>
                                     @if (Auth::user()->role_id === 1)
-                                    <li><a href="html/user-profile-setting.html"><em
+                                    <li><a href="{{ route('settings.edit', Crypt::encrypt(1)) }}"><em
                                                 class="icon ni ni-setting-alt"></em><span>Website Setting</span></a>
+                                            </li>
                                     @endif
-                                    </li>
                                     <li><a class="dark-switch" href="#"><em
                                                 class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
                                 </ul>

@@ -23,7 +23,7 @@
                                     <label for="notes" class="form-label">Catatan</label>
                                     <div class="form-control-wrap">
                                         <textarea id="notes" class="form-control @error('notes') is-invalid @enderror" name="notes" rows="4"
-                                            disabled required>{{ old('notes', $population->notes ?? '') }}</textarea>
+                                            disabled {{ $rejection }} required>{{ old('notes', $population->notes ?? '') }}</textarea>
                                         @error('notes')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -52,7 +52,7 @@
                                     class="form-control @error('name') is-invalid @enderror" name="name"
                                     autocomplete="off" value="{{ old('name', $population->name ?? '') }}"
                                     {{ Auth::user()->role_id == 1 ? 'disabled' : '' }}
-                                    required>
+                                    {{ $rejection }} required>
                                 @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -67,14 +67,14 @@
                                     class="form-control @error('nik_kk') is-invalid @enderror" name="nik_kk"
                                     autocomplete="off" value="{{ old('nik_kk', $population->nik_kk ?? '') }}"
                                     {{ Auth::user()->role_id == 1 ? 'disabled' : '' }}
-                                    required>
+                                    {{ $rejection }} required>
                                 @error('nik_kk')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
                     </div>
-                    @if (Auth::user()->role_id === 0)
+                    @if (Auth::user()->role_id === 0 && $rejection === '')
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="family_card" class="form-label">Kartu Keluarga (File)</label>
@@ -97,7 +97,7 @@
                                 <select id="gender" class="form-select js-select2 @error('gender') is-invalid @enderror"
                                     data-search="onn" name="gender"
                                     {{ Auth::user()->role_id == 1 ? 'disabled' : '' }}
-                                    required>
+                                    {{ $rejection }} required>
                                     <option value="">Pilih Jenis Kelamin</option>
                                     <option value="perempuan"
                                         {{ old('gender', $population->gender ?? '') === 'perempuan' ? 'selected' : '' }}>
@@ -122,7 +122,7 @@
                                     class="form-control @error('birth_place') is-invalid @enderror" name="birth_place"
                                     autocomplete="off" value="{{ old('birth_place', $population->birth_place ?? '') }}"
                                     {{ Auth::user()->role_id == 1 ? 'disabled' : '' }}
-                                    required>
+                                    {{ $rejection }} required>
                                 @error('birth_place')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -137,7 +137,7 @@
                                     class="form-control @error('birth_date') is-invalid @enderror" name="birth_date"
                                     value="{{ old('birth_date', $population->birth_date ?? '') }}"
                                     {{ Auth::user()->role_id == 1 ? 'disabled' : '' }}
-                                    required>
+                                    {{ $rejection }} required>
                                 @error('birth_date')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -152,7 +152,7 @@
                                     class="form-select js-select2 @error('religion') is-invalid @enderror"
                                     data-search="on" name="religion"
                                     {{ Auth::user()->role_id == 1 ? 'disabled' : '' }}
-                                    required>
+                                    {{ $rejection }} required>
                                     <option value="">Pilih Agama</option>
                                     <option value="Islam"
                                         {{ old('religion', $population->religion ?? '') === 'Islam' ? 'selected' : '' }}>
@@ -196,7 +196,7 @@
                                     class="form-select js-select2 @error('marital_status') is-invalid @enderror"
                                     name="marital_status" data-search="on"
                                     {{ Auth::user()->role_id == 1 ? 'disabled' : '' }}
-                                    required>
+                                    {{ $rejection }} required>
                                     <option value="">Pilih Status Perkawinan</option>
                                     <option value="Belum Kawin"
                                         {{ old('marital_status', $population->marital_status ?? '') === 'Belum Kawin' ? 'selected' : '' }}>
@@ -225,7 +225,7 @@
                                     class="form-control @error('job') is-invalid @enderror" name="job"
                                     autocomplete="off" value="{{ old('job', $population->job ?? '') }}"
                                     {{ Auth::user()->role_id == 1 ? 'disabled' : '' }}
-                                    required>
+                                    {{ $rejection }} required>
                                 @error('job')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -240,7 +240,7 @@
                                     class="form-control @error('phone') is-invalid @enderror" name="phone"
                                     autocomplete="off" value="{{ old('phone', $population->phone ?? '') }}"
                                     {{ Auth::user()->role_id == 1 ? 'disabled' : '' }}
-                                    required>
+                                    {{ $rejection }} required>
                                 @error('phone')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -252,7 +252,7 @@
                             <label for="address" class="form-label">Alamat</label>
                             <div class="form-control-wrap">
                                 <textarea id="address" class="form-control @error('address') is-invalid @enderror" name="address" rows="4"
-                                    {{ Auth::user()->role_id == 1 ? 'disabled' : '' }} required>{{ old('address', $population->address ?? '') }}</textarea>
+                                    {{ Auth::user()->role_id == 1 ? 'disabled' : '' }} {{ $rejection }} required>{{ old('address', $population->address ?? '') }}</textarea>
                                 @error('address')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -260,7 +260,7 @@
                         </div>
                     </div>
                 </div>
-                @if (Auth::user()->role_id === 0)
+                @if (Auth::user()->role_id === 0 && $rejection === '')
                     <button type="submit" class="btn btn-primary mx-4">Simpan</button>
                 @endif
 
@@ -281,7 +281,7 @@
                                 <div class="form-control-wrap">
                                     <select id="residence_status"
                                         class="form-select js-select2 @error('residence_status') is-invalid @enderror"
-                                        name="residence_status" required>
+                                        name="residence_status" {{ $rejection }} required>
                                         <option value="">Pilih Status</option>
                                         <option value="1">Ditolak</option>
                                         <option value="2">Perlu Perbaikan</option>
@@ -298,7 +298,7 @@
                                 <label for="notes" class="form-label">Catatan</label>
                                 <div class="form-control-wrap">
                                     <textarea id="notes" class="form-control @error('notes') is-invalid @enderror" name="notes" rows="4"
-                                        required>{{ old('notes', $population->notes ?? '') }}</textarea>
+                                        {{ $rejection }} required>{{ old('notes', $population->notes ?? '') }}</textarea>
                                     @error('notes')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror

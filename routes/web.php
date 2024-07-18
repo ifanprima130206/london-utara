@@ -99,4 +99,9 @@ Route::prefix('admin')->middleware('isNone')->group(function () {
         });
     });
 
+    Route::prefix('settings')->name('settings.')->group(function () {
+        
+        Route::post('/edit/{id}', [QusetionController::class, 'edit'])->name('edit');
+    });
+
 });

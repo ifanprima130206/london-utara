@@ -53,11 +53,6 @@
         </div>
     </nav>
 
-
-
-
-
-
     <section
         class="bg-center bg-no-repeat bg-[url('https://a.travel-assets.com/findyours-php/viewfinder/images/res70/20000/20537-The-West-End.jpg')] bg-gray-700 bg-blend-multiply">
         <div class="px-4 mx-auto max-w-screen-xl text-center py-36 lg:py-64">
@@ -65,7 +60,7 @@
                 Temukan Pesona London Utara
             </h1>
             <p class="mb-8 text-base text-gray-300 lg:text-lg sm:px-8 lg:px-32">
-                Nikmati keindahan dan keunikan kecamatan fiktif di London Utara dengan landmark bersejarah, pasar tradisional, dan taman-taman yang menawan, cocok untuk petualangan wisata Anda.
+                Nikmati keindahan dan keunikan kecamatan di London Utara dengan landmark bersejarah, pasar tradisional, dan taman-taman yang menawan, cocok untuk petualangan wisata Anda.
             </p>
             
 
@@ -413,10 +408,7 @@
                 <div class="w-full px-4 sm:w-2/3 lg:w-3/12">
                     <div class="w-full mb-10">
                         <a href="javascript:void(0)" class="mb-6 inline-block max-w-[160px]">
-                            <img src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg" alt="logo"
-                                class="max-w-full dark:hidden" />
-                            <img src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
-                                alt="logo" class="max-w-full hidden dark:block" />
+                            <img src="{{ url('assets/icon.jpg') }}" style="height: 50px;width:150px;margin-left: -15px">
                         </a>
                         <p class="text-base text-body-color dark:text-dark-6 mb-7">
                             Sed ut perspiciatis undmnis is iste natus error sit amet
@@ -583,7 +575,7 @@
                             </a>
                         </div>
                         <p class="text-base text-body-color dark:text-dark-6">
-                            &copy; 2025 TailGrids
+                            &copy; {{ date('Y') }} London Utara
                         </p>
                     </div>
                 </div>

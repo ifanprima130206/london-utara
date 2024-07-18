@@ -32,7 +32,7 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $value->user->name }}</td>
                             @if ($page == 'verified')
-                                <td>{{ 'xxxxxxxxxxxxxxxx'.$value->nik }}</td>
+                                <td>{{ 'xxxxxxxxxxxxxxxx' . $value->nik }}</td>
                             @else
                                 <td>{{ $value->nik_kk }}</td>
                             @endif
@@ -63,11 +63,19 @@
                                                 class="icon ni ni-more-v"></em></a>
                                         <div class="dropdown-menu">
                                             <ul class="link-list-opt">
-                                                <li>
-                                                    <a
-                                                        href="{{ route('populations.unverified.edit', Crypt::encrypt($value->id)) }}"><em
-                                                            class="icon ni ni-edit"></em><span>{{ Auth::user()->role_id === 1 ? 'Verifikasi' : 'Edit' }}</span></a>
-                                                </li>
+                                                @if ($value->residence_status == 1)
+                                                    <li>
+                                                        <a
+                                                            href="{{ route('populations.unverified.edit', Crypt::encrypt($value->id)) }}"><em
+                                                                class="icon ni ni-eye"></em><span>{{ Auth::user()->role_id === 1 ? 'Verifikasi' : 'Lihat' }}</span></a>
+                                                    </li>
+                                                @else
+                                                    <li>
+                                                        <a
+                                                            href="{{ route('populations.unverified.edit', Crypt::encrypt($value->id)) }}"><em
+                                                                class="icon ni ni-edit"></em><span>{{ Auth::user()->role_id === 1 ? 'Verifikasi' : 'Edit' }}</span></a>
+                                                    </li>
+                                                @endif
                                                 <li>
                                                     <a
                                                         onclick="deleteUser('{{ route('populations.unverified.destroy', Crypt::encrypt($value->id)) }}')"><em
@@ -85,7 +93,10 @@
                                         <div class="dropdown-menu">
                                             <ul class="link-list-opt">
                                                 <li>
-                                                    <a href="{{ route('populations.verified_document', Crypt::encrypt($value->id)) }}"><em class="icon ni ni-file-docs"></em><span>Karu Tanda Penduduk</span></a>
+                                                    <a
+                                                        href="{{ route('populations.verified_document', Crypt::encrypt($value->id)) }}"><em
+                                                            class="icon ni ni-file-docs"></em><span>Karu Tanda
+                                                            Penduduk</span></a>
                                                 </li>
                                             </ul>
                                         </div>
