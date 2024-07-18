@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('nik_kk');
             $table->string('family_card');
+            $table->string('image');
             $table->string('nik')->nullable();
             $table->string('gender');
             $table->string('birth_place');

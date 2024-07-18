@@ -30,7 +30,7 @@
                     @foreach ($unverified as $key => $value)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $value->user->name }}</td>
+                            <td>{{ $value->name }}</td>
                             @if ($page == 'verified')
                                 <td>{{ 'xxxxxxxxxxxxxxxx' . $value->nik }}</td>
                             @else

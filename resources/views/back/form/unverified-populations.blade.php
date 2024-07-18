@@ -5,10 +5,11 @@
         <h4>{{ $title }}</h4>
 
         @if (Auth::user()->role_id === 1)
-            <a href="{{ Storage::url($population->family_card) }}" target="_blank" class="btn btn-primary">Lihat Kartu
-                Keluarga</a>
         @endif
     </div>
+    <a href="{{ Storage::url($population->family_card) }}" target="_blank" class="btn btn-primary mr-2 mb-4">Lihat Kartu
+        Keluarga</a>
+    <a href="{{ Storage::url($population->image) }}" target="_blank" class="btn btn-primary mr-2 mb-4">Lihat Foto Pemohon</a>
 
     @if ($page == 'edit')
         @if ($population->notes && Auth::user()->role_id === 0)
@@ -84,6 +85,20 @@
                                         {{ Auth::user()->role_id == 1 ? 'disabled' : '' }}
                                         {{ $page === 'create' ? 'required' : '' }}>
                                     @error('family_card')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="image" class="form-label">Foto (Formal)</label>
+                                <div class="form-control-wrap">
+                                    <input type="file" id="image"
+                                        class="form-control @error('image') is-invalid @enderror" name="image"
+                                        {{ Auth::user()->role_id == 1 ? 'disabled' : '' }}
+                                        {{ $page === 'create' ? 'required' : '' }}>
+                                    @error('image')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>

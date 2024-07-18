@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use App\Models\Answer;
 use App\Models\Back\Population;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,7 +71,8 @@ class PopulationController extends Controller
 
         $data = [
             'title' => 'Kependudukan',
-            'page' => 'create'
+            'page' => 'create',
+            'rejection' => ''
         ];
 
         return view('back.form.unverified-populations', $data);
@@ -90,9 +92,11 @@ class PopulationController extends Controller
             'phone' => 'required|string|max:20',
             'address' => 'required|string',
             'family_card' => 'required|image|mimes:jpeg,png,jpg,gif,webp',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp',
         ]);
 
         $familyCardPath = $request->file('family_card')->store('upload/kartu_keluarga', 'public');
+        $imagePath = $request->file('image')->store('upload/image', 'public');
 
         $population = new Population;
         $population->enhancer = Auth::user()->id;
@@ -107,6 +111,7 @@ class PopulationController extends Controller
         $population->phone = $validatedData['phone'];
         $population->address = $validatedData['address'];
         $population->family_card = $familyCardPath;
+        $population->image = $imagePath;
         $population->residence_status = 0;
 
         $population->save();
@@ -185,6 +190,7 @@ class PopulationController extends Controller
             'phone' => 'required|string|max:20',
             'address' => 'required|string',
             'family_card' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp',
         ]);
 
         $population = Population::findOrFail($id);
@@ -205,6 +211,11 @@ class PopulationController extends Controller
 
             $familyCardPath = $request->file('family_card')->store('upload/kartu_keluarga', 'public');
             $population->family_card = $familyCardPath;
+        }
+        if ($request->hasFile('image')) {
+
+            $imagePath = $request->file('image')->store('upload/image', 'public');
+            $population->image = $imagePath;
         }
         $population->residence_status = 0;
 
