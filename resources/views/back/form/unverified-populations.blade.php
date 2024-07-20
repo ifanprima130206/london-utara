@@ -7,9 +7,11 @@
         @if (Auth::user()->role_id === 1)
         @endif
     </div>
+    @if ($page == 'edit')
     <a href="{{ Storage::url($population->family_card) }}" target="_blank" class="btn btn-primary mr-2 mb-4">Lihat Kartu
         Keluarga</a>
     <a href="{{ Storage::url($population->image) }}" target="_blank" class="btn btn-primary mr-2 mb-4">Lihat Foto Pemohon</a>
+    @endif
 
     @if ($page == 'edit')
         @if ($population->notes && Auth::user()->role_id === 0)
