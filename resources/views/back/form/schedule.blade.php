@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="end_time" class="form-label">Jam Mulai</label>
+                            <label for="end_time" class="form-label">Jam Akhir</label>
                             <div class="form-control-wrap">
                                 <input type="time" class="form-control @error('end_time') is-invalid @enderror"
                                     name="end_time" autocomplete="off" value="{{ old('end_time', $schedule->end_time ?? '') }}"

@@ -44,6 +44,9 @@
                             </div>
                         </div>
                     </li>
+                    <li>
+                        <a href="{{ url('/') }}" class="btn btn-primary"><em class="icon ni ni-home"></em></a>
+                    </li>
                     <li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle me-n1" data-bs-toggle="dropdown">
                             <div class="user-toggle">
